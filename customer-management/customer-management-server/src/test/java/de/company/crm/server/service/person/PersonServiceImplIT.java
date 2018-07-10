@@ -52,7 +52,9 @@ public class PersonServiceImplIT {
 	public void testCreateAddressFromPerson() throws CreatePersonException {
 		// Prepare
 		Person person = new PersonImpl();
+		person.setName("Hans");
 		Address address = new AddressImpl();
+		address.setStreet("Koblenzer Str. 1");
 
 		// CUT
 		Person createAddressFromPerson = personService.createAddressFromPerson(address, person);
@@ -65,7 +67,9 @@ public class PersonServiceImplIT {
 	public void testFindAllPersons() throws CreatePersonException {
 		// Prepare
 		Person person = new PersonImpl();
+		person.setName("Jens");
 		Address address = new AddressImpl();
+		address.setStreet("Koblenzer Str. 2");
 
 		Person createAddressFromPerson = personService.createAddressFromPerson(address, person);
 		assertNotNull(createAddressFromPerson);
@@ -83,10 +87,12 @@ public class PersonServiceImplIT {
 		Person person1 = new PersonImpl();
 		person1.setName("Lofi");
 		Address address1 = new AddressImpl();
+		address1.setStreet("Koblenzer Str. 3");
 
 		Person person2 = new PersonImpl();
-		person1.setName("Aloha");
+		person2.setName("Aloha");
 		Address address2 = new AddressImpl();
+		address2.setStreet("Koblenzer Str. 4");
 
 		Person createAddressFromPerson1 = personService.createAddressFromPerson(address1, person1);
 		assertNotNull(createAddressFromPerson1);
