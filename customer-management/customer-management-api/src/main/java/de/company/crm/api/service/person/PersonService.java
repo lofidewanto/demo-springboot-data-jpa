@@ -21,4 +21,6 @@ public interface PersonService {
 	Collection<Person> findAllPersons(Integer start, Integer length) throws FinderException;
 
 	Collection<Person> findPersonsByName(String name) throws FinderException;
+
+	Collection<Person> findPersonsByNameReturnStream(String name) throws FinderException;
 }

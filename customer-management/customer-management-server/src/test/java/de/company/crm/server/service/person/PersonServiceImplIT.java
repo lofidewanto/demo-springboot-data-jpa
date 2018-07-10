@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import de.company.crm.api.domain.Address;
 import de.company.crm.api.domain.Person;
@@ -39,6 +40,7 @@ import de.company.crm.server.domain.PersonImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class PersonServiceImplIT {
 
 	@Autowired
@@ -102,6 +104,32 @@ public class PersonServiceImplIT {
 
 		// CUT
 		Collection<Person> persons = personService.findPersonsByName("Lofi");
+
+		// Asserts
+		assertEquals(1, persons.size());
+	}
+
+	@Test
+	public void testFindPersonsByNameReturnStream() throws CreatePersonException {
+		// Prepare
+		Person person1 = new PersonImpl();
+		person1.setName("Lofi");
+		Address address1 = new AddressImpl();
+		address1.setStreet("Koblenzer Str. 3");
+
+		Person person2 = new PersonImpl();
+		person2.setName("Aloha");
+		Address address2 = new AddressImpl();
+		address2.setStreet("Koblenzer Str. 4");
+
+		Person createAddressFromPerson1 = personService.createAddressFromPerson(address1, person1);
+		assertNotNull(createAddressFromPerson1);
+
+		Person createAddressFromPerson2 = personService.createAddressFromPerson(address2, person2);
+		assertNotNull(createAddressFromPerson2);
+
+		// CUT
+		Collection<Person> persons = personService.findPersonsByNameReturnStream("Aloha");
 
 		// Asserts
 		assertEquals(1, persons.size());

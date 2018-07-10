@@ -20,6 +20,7 @@ package de.company.crm.server.service.person;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -94,6 +95,21 @@ public class PersonServiceImpl implements PersonService {
 		Collection<PersonImpl> persons = personRepository.findByName(name);
 
 		Collection<Person> personCollection = new ArrayList<>(persons);
+
+		return personCollection;
+	}
+
+	@Transactional
+	@Override
+	public Collection<Person> findPersonsByNameReturnStream(String name) throws FinderException {
+		Collection<Person> personCollection = new ArrayList<>();
+
+		try (Stream<PersonImpl> persons = personRepository.findByNameReturnStream(name)) {
+			persons.forEach(x -> {
+				personCollection.add(x);
+				logger.info("Person Stream: " + x.getName());
+			});
+		}
 
 		return personCollection;
 	}
