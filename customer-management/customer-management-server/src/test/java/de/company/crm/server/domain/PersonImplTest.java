@@ -18,10 +18,12 @@
  */
 package de.company.crm.server.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import de.company.crm.api.domain.Person;
 
@@ -53,6 +55,19 @@ public class PersonImplTest {
 
 		// Asserts
 		assertEquals(10, age.intValue());
+	}
+
+	@Test
+	public void testCalculateAgeWithUtils() {
+		// Prepare
+		Person person = new PersonImpl();
+		ReflectionTestUtils.setField(person, "nickname", "Aloha");
+
+		// CUT
+		Integer age = person.calculateAge();
+
+		// Asserts
+		assertThat(age).isEqualTo(10);
 	}
 
 }

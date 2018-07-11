@@ -26,9 +26,12 @@ import java.util.Collection;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.util.AopTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.company.crm.api.domain.Address;
@@ -42,6 +45,8 @@ import de.company.crm.server.domain.PersonImpl;
 @SpringBootTest
 @Transactional
 public class PersonServiceImplIT {
+
+	private static final Logger logger = LoggerFactory.getLogger(PersonServiceImplIT.class);
 
 	@Autowired
 	private PersonService personService;
@@ -130,6 +135,9 @@ public class PersonServiceImplIT {
 
 		// CUT
 		Collection<Person> persons = personService.findPersonsByNameReturnStream("Aloha");
+
+		Object targetObject = AopTestUtils.getTargetObject(personService);
+		logger.info("Target Object: " + targetObject);
 
 		// Asserts
 		assertEquals(1, persons.size());
