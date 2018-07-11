@@ -28,6 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 import de.company.crm.api.CustomerManagementEndpoint;
 import de.company.crm.api.dto.UserDto;
 import de.company.crm.api.service.user.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 @RestController
 @CrossOrigin
@@ -36,6 +39,10 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@ApiOperation(value = "Returns logged-in users.", nickname = "getLoginUser", httpMethod = "GET", produces = "application/json")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = UserDto.class),
+			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
 	@GetMapping(value = CustomerManagementEndpoint.USERS + "/{id}")
 	public @ResponseBody UserDto getLoginUser(@PathVariable("id") String id) {
 		String loginUser = userService.getLoginUser();

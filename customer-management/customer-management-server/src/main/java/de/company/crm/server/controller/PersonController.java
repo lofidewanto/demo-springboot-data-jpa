@@ -45,6 +45,7 @@ import de.company.crm.server.domain.AddressImpl;
 import de.company.crm.server.domain.PersonImpl;
 import de.company.crm.server.repository.PersonRepository;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
@@ -98,11 +99,12 @@ public class PersonController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = List.class),
 			@ApiResponse(code = 401, message = "Unauthorized"), @ApiResponse(code = 403, message = "Forbidden"),
 			@ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure") })
-	@GetMapping(value = CustomerManagementEndpoint.PERSONS, params = { "nameSuggestBox", "fromDateTimePicker",
+	@GetMapping(value = CustomerManagementEndpoint.SUGGESTED_PERSONS, params = { "nameSuggestBox", "fromDateTimePicker",
 			"untilDateTimePicker" })
-	public ResponseEntity<List<PersonDto>> filterPersons(@RequestParam("nameSuggestBox") String personName,
-			@RequestParam(value = "fromDateTimePicker", required = false) Date fromDate,
-			@RequestParam(value = "untilDateTimePicker", required = false) Date toDate) {
+	public ResponseEntity<List<PersonDto>> filterPersons(
+			@ApiParam(value = "Name of suggested box") @RequestParam("nameSuggestBox") String personName,
+			@ApiParam(value = "From") @RequestParam(value = "fromDateTimePicker", required = false) Date fromDate,
+			@ApiParam(value = "Until") @RequestParam(value = "untilDateTimePicker", required = false) Date toDate) {
 		logger.info("Method filterPersons begins...");
 
 		List<PersonDto> persons = new ArrayList<>();
