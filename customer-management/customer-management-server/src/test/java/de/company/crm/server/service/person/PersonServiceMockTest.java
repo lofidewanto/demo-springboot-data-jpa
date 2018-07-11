@@ -25,9 +25,9 @@ import de.company.crm.server.repository.PersonRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PersonServiceMockIT {
+public class PersonServiceMockTest {
 
-	private static final Logger logger = LoggerFactory.getLogger(PersonServiceMockIT.class);
+	private static final Logger logger = LoggerFactory.getLogger(PersonServiceMockTest.class);
 
 	@Autowired
 	private PersonService personService;

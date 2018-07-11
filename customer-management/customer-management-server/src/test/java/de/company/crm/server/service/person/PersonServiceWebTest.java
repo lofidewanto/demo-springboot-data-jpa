@@ -22,7 +22,7 @@ import de.company.crm.server.repository.PersonRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(PersonController.class)
-public class PersonServiceWebIT {
+public class PersonServiceWebTest {
 
 	@Autowired
 	private MockMvc mockMvc;
