@@ -20,7 +20,7 @@ import de.company.crm.api.CustomerManagementEndpoint;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PersonServiceMockMvcIT {
+public class PersonServiceMockMvcTest {
 
 	@Autowired
 	private MockMvc mockMvc;
