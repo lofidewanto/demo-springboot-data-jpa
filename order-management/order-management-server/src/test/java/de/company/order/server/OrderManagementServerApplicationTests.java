@@ -1,4 +1,4 @@
-package de.company.crm.server;
+package de.company.order.server;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
