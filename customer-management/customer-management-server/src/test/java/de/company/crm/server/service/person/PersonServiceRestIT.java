@@ -5,7 +5,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -25,6 +28,8 @@ import de.company.crm.server.domain.PersonImpl;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class PersonServiceRestIT {
 
+	private static final Logger logger = LoggerFactory.getLogger(PersonServiceRestIT.class);
+
 	@LocalServerPort
 	private int port;
 
@@ -33,6 +38,9 @@ public class PersonServiceRestIT {
 
 	@Autowired
 	private PersonService personService;
+
+	@Value("${server.servlet.context-path}")
+	private String contextPath;
 
 	private void createAddressFromPerson() throws CreatePersonException {
 		Person person = new PersonImpl();
@@ -56,8 +64,9 @@ public class PersonServiceRestIT {
 		createAddressFromPerson();
 
 		// CUT
+		logger.info("Test started...");
 		assertThat(this.restTemplate.getForObject(
-				"http://localhost:" + port + "/demo" + CustomerManagementEndpoint.PERSONS + "?start=1&length=10",
+				"http://localhost:" + port + contextPath + CustomerManagementEndpoint.PERSONS + "?start=1&length=10",
 				String.class)).contains("");
 	}
 }
