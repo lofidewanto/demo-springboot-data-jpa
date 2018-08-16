@@ -43,8 +43,8 @@ public class PersonImpl implements Person {
 
 	private String nickname;
 
-	@OneToMany
-	private Collection<AddressImpl> addresses = new ArrayList<>();
+	@OneToMany(targetEntity=AddressImpl.class)
+	private Collection<Address> addresses = new ArrayList<>();
 
 	private Boolean isInRetirement;
 
@@ -79,7 +79,7 @@ public class PersonImpl implements Person {
 	@Override
 	public void changeLastAddress(Address address, Boolean isLastOne) {
 		if (!isLastOne) {
-			Optional<AddressImpl> findFirst = addresses.stream().findFirst();
+			Optional<Address> findFirst = addresses.stream().findFirst();
 			Address addressFound = findFirst.get();
 			addressFound.setStreet("New Street on the Blocks");
 		}
@@ -103,7 +103,7 @@ public class PersonImpl implements Person {
 
 	@Override
 	public void addAddress(Address address) {
-		this.addresses.add((AddressImpl) address);
+		this.addresses.add(address);
 	}
 
 	@Override
