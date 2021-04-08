@@ -40,8 +40,8 @@ public class AddressImpl implements Address {
 
 	private String street;
 
-	@ManyToOne
-	private PersonImpl person;
+	@ManyToOne(targetEntity=PersonImpl.class)
+	private Person person;
 
 	private AddressType addressType;
 
@@ -72,7 +72,7 @@ public class AddressImpl implements Address {
 
 	@Override
 	public void setPerson(Person person) {
-		this.person = (PersonImpl) person;
+		this.person = person;
 	}
 
 	@Override
