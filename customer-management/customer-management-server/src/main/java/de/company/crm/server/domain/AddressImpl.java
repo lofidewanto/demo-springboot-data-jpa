@@ -40,7 +40,7 @@ public class AddressImpl implements Address {
 
 	private String street;
 
-	@ManyToOne(targetEntity=PersonImpl.class)
+	@ManyToOne(targetEntity = PersonImpl.class)
 	private Person person;
 
 	private AddressType addressType;
