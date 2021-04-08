@@ -43,7 +43,7 @@ public class PersonImpl implements Person {
 
 	private String nickname;
 
-	@OneToMany(targetEntity=AddressImpl.class)
+	@OneToMany(targetEntity = AddressImpl.class)
 	private Collection<Address> addresses = new ArrayList<>();
 
 	private Boolean isInRetirement;
