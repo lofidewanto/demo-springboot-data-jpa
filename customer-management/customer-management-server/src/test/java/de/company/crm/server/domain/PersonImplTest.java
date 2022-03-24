@@ -19,17 +19,17 @@
 package de.company.crm.server.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import de.company.crm.api.domain.Person;
 
 public class PersonImplTest {
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 	}
 

@@ -18,15 +18,15 @@
  */
 package de.company.crm.server.service.person;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.doReturn;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import de.company.crm.api.domain.Address;
 import de.company.crm.api.domain.Person;
@@ -37,7 +37,7 @@ import de.company.crm.server.domain.PersonImpl;
 import de.company.crm.server.repository.AddressRepository;
 import de.company.crm.server.repository.PersonRepository;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PersonServiceImplTest {
 
 	@InjectMocks
@@ -49,7 +49,7 @@ public class PersonServiceImplTest {
 	@Mock
 	private AddressRepository addressRepository;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 	}
 

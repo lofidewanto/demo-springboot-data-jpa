@@ -1,19 +1,19 @@
 package de.company.crm.server.service.person;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Spy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import de.company.crm.api.domain.Person;
 import de.company.crm.api.exception.CreatePersonException;
@@ -23,7 +23,6 @@ import de.company.crm.server.domain.PersonImpl;
 import de.company.crm.server.repository.AddressRepository;
 import de.company.crm.server.repository.PersonRepository;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class PersonServiceMockTest {
 
@@ -44,7 +43,7 @@ public class PersonServiceMockTest {
 	@MockBean
 	private PersonRepository personRepository;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 	}
 
@@ -62,17 +61,20 @@ public class PersonServiceMockTest {
 		assertNotNull(createAddressFromPerson);
 	}
 
-	@Test(expected = CreatePersonException.class)
-	public void testCreateAddressFromPersonWithException() throws CreatePersonException {
+	@Test
+	void testCreateAddressFromPersonWithException() throws CreatePersonException {
 		// Prepare
 		logger.info("Prepare...");
 		given(addressRepository.save(any())).willReturn(address);
 
 		// CUT
-		Person createAddressFromPerson = personService.createAddressFromPerson(address, person);
+		Exception exception = assertThrows(CreatePersonException.class, () -> {
+			personService.createAddressFromPerson(address, person);
+		});
 
-		// Asserts
-		assertNotNull(createAddressFromPerson);
+		String actualMessage = exception.getMessage();
+
+        assertEquals(null, actualMessage);
 	}
 
 }

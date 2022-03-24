@@ -6,13 +6,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import de.company.crm.api.CustomerManagementEndpoint;
@@ -20,7 +18,6 @@ import de.company.crm.api.service.person.PersonService;
 import de.company.crm.server.controller.PersonController;
 import de.company.crm.server.repository.PersonRepository;
 
-@RunWith(SpringRunner.class)
 @WebMvcTest(PersonController.class)
 public class PersonServiceWebTest {
 
@@ -33,7 +30,7 @@ public class PersonServiceWebTest {
 	@MockBean
 	private PersonRepository personRepository;
 
-	@Ignore
+	@Disabled("Ignore this one")
 	@Test
 	public void shouldReturnPersons() throws Exception {
 		mockMvc.perform(get("/demo" + CustomerManagementEndpoint.PERSONS + "?start=1&length=10")).andDo(print())

@@ -18,19 +18,17 @@
  */
 package de.company.crm.server.service.person;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.Collection;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.AopTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,7 +39,6 @@ import de.company.crm.api.service.person.PersonService;
 import de.company.crm.server.domain.AddressImpl;
 import de.company.crm.server.domain.PersonImpl;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
 public class PersonServiceImplIT {
@@ -51,7 +48,7 @@ public class PersonServiceImplIT {
 	@Autowired
 	private PersonService personService;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 	}
 

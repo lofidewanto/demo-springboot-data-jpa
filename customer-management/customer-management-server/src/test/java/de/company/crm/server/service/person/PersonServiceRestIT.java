@@ -2,9 +2,8 @@ package de.company.crm.server.service.person;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import de.company.crm.api.CustomerManagementEndpoint;
@@ -24,7 +22,6 @@ import de.company.crm.api.service.person.PersonService;
 import de.company.crm.server.domain.AddressImpl;
 import de.company.crm.server.domain.PersonImpl;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class PersonServiceRestIT {
 
@@ -53,7 +50,7 @@ public class PersonServiceRestIT {
 		assertThat(createAddressFromPerson).isNotNull();
 	}
 
-	@Before
+	@BeforeEach
 	public void startUp() {
 	}
 
