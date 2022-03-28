@@ -6,7 +6,7 @@
  *  
  * Generation date: Mon Jul 09 14:58:15 CEST 2018.
  */
-package de.company.crm.api.service.person;
+package de.company.crm.api.service;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package de.company.crm.server.service.person;
+package de.company.crm.server.service;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -14,7 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import de.company.crm.api.CustomerManagementEndpoint;
-import de.company.crm.api.service.person.PersonService;
+import de.company.crm.api.service.PersonService;
 import de.company.crm.server.controller.PersonController;
 import de.company.crm.server.repository.PersonRepository;
 

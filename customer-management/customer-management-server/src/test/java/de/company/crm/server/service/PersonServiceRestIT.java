@@ -1,4 +1,4 @@
-package de.company.crm.server.service.person;
+package de.company.crm.server.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,7 +18,7 @@ import de.company.crm.api.CustomerManagementEndpoint;
 import de.company.crm.api.domain.Address;
 import de.company.crm.api.domain.Person;
 import de.company.crm.api.exception.CreatePersonException;
-import de.company.crm.api.service.person.PersonService;
+import de.company.crm.api.service.PersonService;
 import de.company.crm.server.domain.AddressImpl;
 import de.company.crm.server.domain.PersonImpl;
 

@@ -6,7 +6,7 @@
  *  
  * Generation date: Mon Jul 09 14:58:16 CEST 2018.
  */
-package de.company.crm.api.service.user;
+package de.company.crm.api.service;
 public interface UserService {
 	String getLoginUser();
 }

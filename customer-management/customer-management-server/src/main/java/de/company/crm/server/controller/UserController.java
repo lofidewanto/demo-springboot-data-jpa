@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import de.company.crm.api.CustomerManagementEndpoint;
 import de.company.crm.api.dto.UserDto;
-import de.company.crm.api.service.user.UserService;
+import de.company.crm.api.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

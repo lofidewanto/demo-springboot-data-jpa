@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package de.company.crm.server.service.person;
+package de.company.crm.server.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -35,7 +35,7 @@ import org.springframework.transaction.annotation.Transactional;
 import de.company.crm.api.domain.Address;
 import de.company.crm.api.domain.Person;
 import de.company.crm.api.exception.CreatePersonException;
-import de.company.crm.api.service.person.PersonService;
+import de.company.crm.api.service.PersonService;
 import de.company.crm.server.domain.AddressImpl;
 import de.company.crm.server.domain.PersonImpl;
 

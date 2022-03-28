@@ -20,7 +20,7 @@ package de.company.crm.server.service;
 
 import org.springframework.stereotype.Service;
 
-import de.company.crm.api.service.user.UserService;
+import de.company.crm.api.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
