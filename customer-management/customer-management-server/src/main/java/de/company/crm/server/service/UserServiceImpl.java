@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package de.company.crm.server.service.user;
+package de.company.crm.server.service;
 
 import org.springframework.stereotype.Service;
 

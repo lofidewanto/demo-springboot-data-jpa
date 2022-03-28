@@ -36,6 +36,7 @@ import de.company.crm.server.domain.AddressImpl;
 import de.company.crm.server.domain.PersonImpl;
 import de.company.crm.server.repository.AddressRepository;
 import de.company.crm.server.repository.PersonRepository;
+import de.company.crm.server.service.PersonServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class PersonServiceImplTest {
