@@ -6,7 +6,7 @@
  *  
  * Generation date: Mon Jul 09 14:58:16 CEST 2018.
  */
-package de.company.order.api.service.order;
+package de.company.order.api.service;
 
 public interface OrderService {
 	String getOrders();

@@ -16,11 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package de.company.order.server.service.user;
+package de.company.order.server.service;
 
 import org.springframework.stereotype.Service;
 
-import de.company.order.api.service.order.OrderService;
+import de.company.order.api.service.OrderService;
 
 @Service
 public class OrderServiceImpl implements OrderService {
