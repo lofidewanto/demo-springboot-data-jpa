@@ -28,7 +28,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>de.company.crm</groupId>
-			<artifactId>customer-management-api</artifactId>
+			<artifactId>customer-management-shared</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

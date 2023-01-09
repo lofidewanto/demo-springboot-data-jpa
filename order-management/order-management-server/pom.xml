@@ -28,7 +28,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>de.company.crm</groupId>
-			<artifactId>order-management-api</artifactId>
+			<artifactId>order-management-shared</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
